@@ -60,17 +60,5 @@ export const data = {
       numReviews: 10,
       description: "High quality shirt",
     },
-    {
-      name: "Nike Slim shirt 6",
-      slug: "nike-slim-shirt-6",
-      category: "Shirts",
-      image: "/images/p6.jpg",
-      price: 150,
-      countInStock: 10,
-      brand: "Nike",
-      rating: 4.5,
-      numReviews: 10,
-      description: "High quality shirt",
-    },
   ],
 };
