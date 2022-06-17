@@ -36,5 +36,17 @@ export const data = {
       numReviews: 10,
       description: "High quality shirt",
     },
+    {
+      name: "Nike Slim shirt 4",
+      slug: "nike-slim-shirt-4",
+      category: "Shirts",
+      image: "/images/p4.jpg",
+      price: 110,
+      countInStock: 10,
+      brand: "Nike",
+      rating: 4.5,
+      numReviews: 10,
+      description: "High quality shirt",
+    },
   ],
 };
