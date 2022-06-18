@@ -28,7 +28,7 @@ main {
 
 .product img {
   width: 100%;
-  max-width: 200px;
+  max-height: 200px;
 }
 
 .product-info {
@@ -42,4 +42,10 @@ main {
 .btn-primary {
   background-color: #f0c040;
   color: #000000;
+}
+
+.img-large {
+  max-width: 100%;
+  image-rendering: optimizeQuality;
+  height: 100vh;
 }
