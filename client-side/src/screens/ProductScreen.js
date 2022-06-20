@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useReducer } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -34,6 +34,7 @@ const reducer = (state, action) => {
 };
 
 export default function ProductScreen() {
+  const navigate = useNavigate();
   const params = useParams();
   const { product_slug } = params;
 
@@ -67,6 +68,7 @@ export default function ProductScreen() {
       return window.alert("Sorry, product is out of stock.");
     }
     cxtDispatch({ type: CART_ADD_ITEM, payload: { ...product, quantity } });
+    navigate("/cart");
   };
 
   return loading ? (
