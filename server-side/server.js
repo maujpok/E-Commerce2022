@@ -16,6 +16,15 @@ app.get("/products/slug/:product_slug", (req, res) => {
   }
 });
 
+app.get("/products/:id", (req, res) => {
+  const product = data.products.find((x) => x._id === req.params.id);
+  if (product) {
+    res.send(product);
+  } else {
+    res.status(404).send({ message: "Error" });
+  }
+});
+
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
   console.log(`server listening at http://localhost:${port}`);
