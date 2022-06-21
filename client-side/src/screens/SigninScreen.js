@@ -7,6 +7,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { Store } from "../Store";
 import { USER_SIGNIN } from "../const/storeConstants";
+import { toast } from "react-toastify";
+import { getError } from "../utils/getError";
 
 export default function SigninScreen() {
   const navigate = useNavigate();
@@ -26,7 +28,9 @@ export default function SigninScreen() {
       localStorage.setItem("userInfo", JSON.stringify(data));
       navigate(redirect || "/");
     } catch (err) {
-      alert("Invalid email or password.");
+      toast.error(getError(err), {
+        autoClose: 2000,
+      });
     }
   };
   useEffect(() => {
