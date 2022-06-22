@@ -26,6 +26,7 @@ export default function SigninScreen() {
       const { data } = await axios.post("/users/signin", { email, password });
       ctxDispatch({ type: USER_SIGNIN, payload: data });
       localStorage.setItem("userInfo", JSON.stringify(data));
+      toast.success(`Welcome again!`, { autoClose: 2000 });
       navigate(redirect || "/");
     } catch (err) {
       toast.error(getError(err), {
