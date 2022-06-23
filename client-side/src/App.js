@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -9,12 +10,12 @@ import Badge from "react-bootstrap/Badge";
 import Container from "react-bootstrap/Container";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { LinkContainer } from "react-router-bootstrap";
-import { useContext } from "react";
 import { Store } from "./Store";
 import CartScreen from "./screens/CartScreen";
 import SigninScreen from "./screens/SigninScreen";
 import { USER_SIGNOUT } from "./const/storeConstants";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
+import SignUpScreen from './screens/SignUpScreen';
 
 export default function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -76,11 +77,9 @@ export default function App() {
             <Routes>
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
+              <Route path="/signup" element={<SignUpScreen />} />
               <Route path="/cart" element={<CartScreen />} />
-              <Route
-                path="/product/:product_slug"
-                element={<ProductScreen />}
-              />
+              <Route path="/product/:product_slug" element={<ProductScreen />} />
               <Route path="/" element={<HomeScreen />} />
             </Routes>
           </Container>
