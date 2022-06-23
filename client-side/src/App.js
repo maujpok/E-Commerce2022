@@ -16,6 +16,7 @@ import SigninScreen from "./screens/SigninScreen";
 import { USER_SIGNOUT } from "./const/storeConstants";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SignUpScreen from './screens/SignUpScreen';
+import PaymentMethodScreen from "./screens/PaymentMethodScreen";
 
 export default function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -25,6 +26,7 @@ export default function App() {
     ctxDispatch({ type: USER_SIGNOUT });
     localStorage.removeItem("userInfo");
     localStorage.removeItem("shippingAddress");
+    localStorage.removeItem("paymentMethod");
   };
 
   return (
@@ -75,12 +77,13 @@ export default function App() {
         <main>
           <Container className="mt-3">
             <Routes>
-              <Route path="/shipping" element={<ShippingAddressScreen />} />
+              <Route path="/" element={<HomeScreen />} />
+              <Route path="/product/:product_slug" element={<ProductScreen />} />
+              <Route path="/cart" element={<CartScreen />} />
               <Route path="/signin" element={<SigninScreen />} />
               <Route path="/signup" element={<SignUpScreen />} />
-              <Route path="/cart" element={<CartScreen />} />
-              <Route path="/product/:product_slug" element={<ProductScreen />} />
-              <Route path="/" element={<HomeScreen />} />
+              <Route path="/shipping" element={<ShippingAddressScreen />} />
+              <Route path="/payment" element={<PaymentMethodScreen />} />
             </Routes>
           </Container>
         </main>
