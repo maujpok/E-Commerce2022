@@ -17,6 +17,7 @@ import { USER_SIGNOUT } from "./const/storeConstants";
 import ShippingAddressScreen from "./screens/ShippingAddressScreen";
 import SignUpScreen from './screens/SignUpScreen';
 import PaymentMethodScreen from "./screens/PaymentMethodScreen";
+import PlaceOrderScreen from './screens/PlaceOrderScreen';
 
 export default function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -84,6 +85,7 @@ export default function App() {
               <Route path="/signup" element={<SignUpScreen />} />
               <Route path="/shipping" element={<ShippingAddressScreen />} />
               <Route path="/payment" element={<PaymentMethodScreen />} />
+              <Route path="/placeorder" element={<PlaceOrderScreen />} />
             </Routes>
           </Container>
         </main>

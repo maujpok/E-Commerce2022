@@ -1,6 +1,7 @@
 import { createContext, useReducer } from "react";
 import {
   CART_ADD_ITEM,
+  CART_CLEAR,
   CART_REMOVE_ITEM,
   SAVE_PAYMENT_METHOD,
   SAVE_SHIPPING_ADDRESS,
@@ -49,6 +50,10 @@ function reducer(state, action) {
       );
       localStorage.setItem("cartItems", JSON.stringify(cartItems));
       return { ...state, cart: { ...state.cart, cartItems } };
+    }
+
+    case CART_CLEAR: {
+      return { ...state, cart: { ...state.cart, cartItems: [] } };
     }
 
     case USER_SIGNIN: {
