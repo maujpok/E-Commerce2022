@@ -8,3 +8,6 @@ export const PAY_FAIL = "PAY_FAIL";
 export const PAY_REQUEST = "PAY_REQUEST";
 export const PAY_SUCCESS = "PAY_SUCCESS";
 export const PAY_RESET = "PAY_RESET";
+export const UPDATE_REQUEST = "UPDATE_REQUEST";
+export const UPDATE_SUCCESS = "UPDATE_SUCCESS";
+export const UPDATE_FAIL = "UPDATE_FAIL";

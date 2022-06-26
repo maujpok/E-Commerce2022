@@ -148,6 +148,31 @@ export default function OrderScreen() {
         <Col md={8}>
           <Card className="mb-3">
             <Card.Body>
+              <Card.Title>Items</Card.Title>
+              <ListGroup variant="flush">
+                {order.orderItems.map((item) => (
+                  <ListGroupItem key={item._id}>
+                    <Row className="align-items-center">
+                      <Col md={6}>
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="img-fluid rounded img-thumbnail"
+                        />{" "}
+                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                      </Col>
+                      <Col md={3}>
+                        <span>{item.quantity}</span>
+                      </Col>
+                      <Col md={3}>${item.price}</Col>
+                    </Row>
+                  </ListGroupItem>
+                ))}
+              </ListGroup>
+            </Card.Body>
+          </Card>
+          <Card className="mb-3">
+            <Card.Body>
               <Card.Title>Shipping</Card.Title>
               <Card.Text>
                 <strong>Name:</strong> {order.shippingAddress.fullName} <br />
@@ -178,32 +203,6 @@ export default function OrderScreen() {
               ) : (
                 <MessageBox variant="danger">Not paid yet</MessageBox>
               )}
-            </Card.Body>
-          </Card>
-
-          <Card className="mb-3">
-            <Card.Body>
-              <Card.Title>Items</Card.Title>
-              <ListGroup variant="flush">
-                {order.orderItems.map((item) => (
-                  <ListGroupItem key={item._id}>
-                    <Row className="align-items-center">
-                      <Col md={6}>
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="img-fluid rounded img-thumbnail"
-                        />{" "}
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
-                      </Col>
-                      <Col md={3}>
-                        <span>{item.quantity}</span>
-                      </Col>
-                      <Col md={3}>${item.price}</Col>
-                    </Row>
-                  </ListGroupItem>
-                ))}
-              </ListGroup>
             </Card.Body>
           </Card>
         </Col>
