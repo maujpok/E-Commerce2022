@@ -1,0 +1,21 @@
+{
+  "name": "e-commerce2022",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build":"cd server-side && npm install && cd ../client-side && npm install && npm run build",
+    "start": "node server-side/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maujpok/E-Commerce2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maujpok/E-Commerce2022/issues"
+  },
+  "homepage": "https://github.com/maujpok/E-Commerce2022#readme"
+}

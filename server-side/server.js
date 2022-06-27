@@ -1,4 +1,5 @@
 import express from "express";
+import path from "path";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import seedRouter from "./routes/seedRoutes.js";
@@ -28,6 +29,12 @@ app.use("/seed", seedRouter);
 app.use("/products", productRouter);
 app.use("/users", userRouter);
 app.use("/orders", orderRouter);
+
+const __dirname = path.resolve();
+app.use(express.static(path.join(__dirname, "/client-side/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client-side/build/index.html"));
+})
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });
